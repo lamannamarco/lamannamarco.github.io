@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="keywords" content="Marco La Manna, PhD, Computational Optics, University of Wisconsin Madison, UW Madison">
+    <meta name="description" content="Marco La Manna's Personal Webpage; Postdoctoral Research Associate University of Wisconsin - Madison">
+    <meta name="author" content="Marco La Manna">
+
+    <title> Research - Marco La Manna</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/heroic-features.css" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="https://biostat.wisc.edu/~compoptics/">Computational Optics</a>
+                    </li>
+                    <li>
+                        <a href="index.html">About Me</a>
+                    </li>
+                    <li>
+                        <a href="research.html">Research</a>
+                    </li>
+                    <li>
+                        <a href="publications.html">Publications</a>
+                    </li>
+                    <li>
+                        <a href="personal.html">Personal</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+        <hr>
+
+        <!-- Title -->
+        <div class="row">
+            <div class="col-lg-12 text-left text-center">
+                <h1> <b> Research </b> </h1>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Page Features -->
+        <div class="row">
+            <div class=col-md-3>
+                <img class="img-responsive img-rounded" src="images/nlos_scenario.png" alt="NLOS_Scenario">
+                <p align="center"> Fig. 1. Non-Line-of-Sight scenario.</p>
+            </div>
+            <div class=col-md-9>
+                <p align="justify">Consider the scenario shown in Fig. 1, which comprises a laser, a  camera, a relay wall and an object that is hidden behind an occluder. Since the target is not in the direct line-of-sight of the laser, the scenario is typically referred to as Non-Line-of-Sight (NLOS). A NLOS line of research rotates around the following question: <b>"is it possible to reconstruct an image of the target hidden behind an occluder? </b></p>
+                <p align="justify"> In 2012, Andreas Velten and his MIT colleagues addressed this question by exploiting the information encoded in the photons that have reflected multiple times. More specifically, using a laser that emits femtosecond (10^-15) long pulses at a MHz repetition rate and an ultra-fast camera capable of recording at a picosecond (10^-9) resolution, authors in [1] proposed a technique based on the backprojection algorithm. In Fig. 1, the laser is directed over a specific point on the wall, ‘p’, and the camera is focused on another point of the wall, ‘o’. If we assume that the surface of the wall is Lambertian, the photons are uniformly scattered over the entire volume; some photons travel to the target and a fraction of these photons travels back to the wall. The ones reaching the point ‘o’ are collected by the camera. The underlying assumption is that we are able to illuminate the wall using short pulses and have a camera fast enough to detect the time of flight of the photons, which in turn allows us to determine the distance travelled from ‘p’ to ‘o’.</p>
+            </div>
+        </div>
+        <div class="row"> 
+            <div class=col-md-12>
+                <p align="justify">The goal of proposed technique is to reconstruct the albedo of the scene by collecting data, which is a function of the laser position and camera position (on the wall) and time. This reconstruction is basically an inverse problem and the backprojection algorithm (typically exploited in Computational Tomography applications) provides a solution, albeit approximate and to unable of including priors. It is however robust, parallelizable and efficiently uses the available computational resources.</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class=col-md-7>
+                <p align="justify"> <b>How does the backprojection algorithm work?</b></p>
+                <p align="justify"> Consider the toy scenario shown in Fig. 2a, composed of an ultra-fast laser, an ultra-fast camera, a relay wall where we show 3 different laser positions (‘p’, ‘q’ and ‘r’), a camera position (‘o’) and a simple target, namely a small patch. Assume that the laser is directed over point ‘p’ and the camera captures the photons that arrive in point ‘o’, as explained above. From the dataset, however, we do not know which pulse came from which surface of the target object. We can say that the possible locations that have contributed to a given photon lie on ellipsoid whose foci are, in our example, ‘p’ and ‘o’. In Fig. 2b-2d, we show the ellipsoids for the considered laser points: the intersection corresponds to the patch location on the reconstructed volume. Some useful references can be found in [1]-[2].</p>
+                <p align="justify"> <b>Can we improve these results?</b></p>
+                <p align="justify"> We have studied an iterative algorithm, which we named “Error Backprojection” (in short, AEB), based on the Algebraic Reconstruction Techniques (ART). For simplicity, let us call the collected dataset as s1, and let b1 = B(s1), where B() is the backprojection function and b1 is the result of the backprojection. In words, the backprojection algorithm allows us to obtain a result in the “albedo space” (b1) from the “data space” (s1). Now, let us assume that we have a forward model of the scenario under investigation, namely a function -say F()- that creates a correspondence between the “albedo space” and the “dataset space”; mathematically, it can be defined as s2 = F(b1). Once s2 is obtained, we calculate b2 = b1 + &alpha; B(s1-s2), where (s1-s2) is the defined as the error in the dataset and b2 is the updated backprojection result, based on the aforementioned error (&alpha; is a step size parameter). This update is repeated until a stop criterion is reached.</p>
+            </div>
+            <div class=col-md-5>
+                <img class="img-responsive img-rounded" src="images/nlos_ellipses.png" alt="NLOS_Ellipses">
+            </div>
+        </div>
+        <div class="row"> 
+            <div class=col-md-12>
+                <p align="justify">In Fig. 3, we show some simulation results. In this toy example, we have two isotropic spheres (see the magenta circles in Fig. 3a) that are not on the direct line-of-sight of either the laser, L, or the camera, R. Considering a reconstruction space indicated by the blue lines in Fig. 3a, we show the non-iterative result in Fig. 3b, whereas the AEB result (after 5 iterations) is in Fig. 3c. It is possible to see that the AEB improved over the non-iterative result, as the recovered area of each sphere is smaller that is non-iterative counterpart.  For a more detailed explanation, refer to [3].</p>
+                <img class="img-responsive img-rounded" src="images/nlos_AEB_results.png" alt="AEB_results">
+                <p align="justify"><b>What's next?</b></p>
+                <p align="justify"> We are currently looking into extending our algorithm to five and higher-bounce paths, from a theoretical, simulation and experimental point of view. </p>
+                <p align="justify"> <b>References:</b>
+                    <br/>
+                    [1] A. Velten, et al., "<a href="https://www.nature.com/articles/ncomms1747">Recovering three-dimensional shape around a corner using ultrafast time-of-flight imaging</a>", <b><em>Nature Communications</em></b>, 3:745 doi: 10.1038/ncomms1747, 2012.
+                    <br/>
+                    [2] M. Buttafava, et al., "<a href="https://www.osapublishing.org/oe/abstract.cfm?uri=oe-23-16-20997">Non-line-of-sight imaging using a time-gated single photon avalanche diode</a>", <b><em>Optics Express</em></b>, vol. 23, no. 16, Aug. 2015.
+                    <br/>
+                    [3] M. La Manna, et al. "<a href="https://ieeexplore.ieee.org/document/8371271/">Error Backprojection Algorithms for Non-Line-of-Sight Imaging</a>", <em>(Early Access)</em>, <b><em> IEEE Transactions on Pattern Analysis and Machine Intelligence</em></b>, Jun. 2018.</p>
+            </div>
+        </div>
+
+        <!-- /.row -->
+        <hr>
+        <!-- Footer -->
+        <footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <p>Copyright &copy; Marco La Manna, 2016</p>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+</body>
+
+</html>
