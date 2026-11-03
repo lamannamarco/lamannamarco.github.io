@@ -11,10 +11,12 @@
 
 <body>
     <header class="site-header"><a class="wordmark" href="index.html">Marco La Manna<span></span></a>
-        <nav><a href="#about">About</a><a href="#projects">Projects</a><a
-                href="https://www.linkedin.com/in/marcolamannaphd/">LinkedIn ↗</a><a
-                href="https://scholar.google.com/citations?user=xbPcOj4AAAAJ&hl=en">Google Scholar ↗</a><a
-                href="https://github.com/lamannamarco">GitHub ↗</a></nav>
+        <nav>
+            <a href="#about">About</a><a href="#projects">Projects</a>
+            <a href="https://www.linkedin.com/in/marcolamannaphd/">LinkedIn ↗</a>
+            <a href="https://scholar.google.com/citations?user=xbPcOj4AAAAJ&hl=en">Google Scholar ↗</a>
+            <a href="https://github.com/lamannamarco">GitHub ↗</a>
+        </nav>
     </header>
     <main>
         <section class="about-section" id="about">
@@ -34,11 +36,13 @@
             </div>
 
             <div class="about-description">
-                <p>I hold a PhD in Electrical Engineering. 
+                <p>I hold a PhD in electrical engineering. 
                     My early career focused on academic research in radar and optical sensing. 
                     This included research on MIMO radar systems and optical computational imaging techniques for seeing around corners.
-                    After a postdoctoral research position, I moved into industry. 
-                    Since 2019, I have worked at KMB Telematics as a Senior Research Engineer.
+                    After a postdoctoral research position, I moved into industry.
+                    For my full professional experience and publications, see 
+                    <a href="https://www.linkedin.com/in/marcolamannaphd/" style="text-decoration: underline;">LinkedIn</a> and 
+                    <a href="https://scholar.google.com/citations?user=xbPcOj4AAAAJ&hl=en" style="text-decoration: underline;">Google Scholar</a>.
                 </p>
                 <p>My work spans the engineering process, from understanding operational needs and defining system requirements to design, 
                     prototyping, integration, and validation. 
@@ -46,14 +50,9 @@
                     what problem are we trying to solve, which trade-offs matter, and how do we know the solution works?
                 </p>
                 <p>
-                    This site brings together selected projects, technical methods, and lessons from my work.
-                </p>
-                <p>
-                    Outside engineering, I spend some of my time at local ice arenas, both playing and officiating.
+                    Aside from engineering, I spend some of my time at the local ice arenas, both playing and officiating ice hockey.
                 </p>
             </div>
-
-        </section>
 
         </section>
 
@@ -63,20 +62,20 @@
                     <p class="eyebrow">COOL STUFF</p>
                     <h2>Projects &amp; tutorials</h2>
                 </div>
-                <p class="section-note">Practical notes and code on radar concepts, processing methods, and system
-                    design.</p>
             </div>
             <p> Clicking on the links below will redirect you to a specific Github repo. Checkout the README and then
-                clone the repo to play with the scripts. Code was written with Python and does not require exotic modules.</p>
+                clone the repo to play with the scripts. Code was written with Python and requires standard modules like numpy, scipy and matplotlib.</p>
             <div class="project-grid">
                 <a class="project-card" href="https://github.com/lamannamarco/fmcw-radar-basics">
-                    <div class="project-image fmcw"><span>RADAR BASICS</span>
-                        <div class="bars"><i></i><i></i><i></i><i></i><i></i><i></i></div>
+                    <div class="project-image">
+                        <img src="images/fmcw-basics.jpg" alt="FMCW Radar Processing">
+                        <span>RADAR BASICS</span>
                     </div>
                     <div class="card-body">
                         <p class="meta">RADAR · FMCW</p>
                         <h3>FMCW Radar Processing</h3>
-                        <p>How does an FMCW radar "see" a target?</p><b>View project ↗</b>
+                        <p>How does an FMCW radar "see" a target?</p>
+                        <b>View project ↗</b>
                     </div>
                 </a>
                 <a class="project-card" href="">
@@ -84,27 +83,28 @@
                         <div class="elements"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
                     </div>
                     <div class="card-body">
-                        <p class="meta">HYBRID MIMO · ARCHITECTURE</p>
-                        <h3>Hybrid MIMO Radar</h3>
-                        <p>Part of my disseration on the hybrid phased array/MIMO radar architecture and its DSP</p>
-                        <b>View project↗</b>
+                        <p class="meta">RADAR · ARCHITECTURE</p>
+                        <h3>HMPAR Rx DSP</h3>
+                        <p>This was my PhD dissertation, discussing the receive signal processing of a 
+                            hybrid phased-array/MIMO (HMPAR) architecture.</p>
                     </div>
                 </a>
-                <a class="project-card" href="projects/sar-python.html">
-                    <div class="project-image sar"><span>RADAR IMAGING</span></div>
+                <a class="project-card" href="https://github.com/lamannamarco/synthetic-aperture-radar-stripmap">
+                    <div class="project-image">
+                        <img src="images/sar-stripmap.jpg" alt="SAR geometry">
+                        <span>RADAR IMAGING</span>
+                    </div>
                     <div class="card-body">
                         <p class="meta">FMCW · SAR</p>
                         <h3>Synthetic Aperture Radar</h3>
                         <p>SAR 101: Data acquisition and processing, assuming a stripmap configuration.</p>
-                        <b>View project↗</b>
+                        <b>View project ↗</b>
                     </div>
                 </a>
-
-
             </div>
         </section>
     </main>
-    <footer class="site-footer"><span>© 2026 Marco La Manna</span><span>Built with HTML &amp; CSS</span></footer>
+    <footer class="site-footer"><span>© 2026 Marco La Manna · <a href="https://www.linkedin.com/in/marcolamannaphd/" style="text-decoration: underline;">LinkedIn</a> · <a href="https://scholar.google.com/citations?user=xbPcOj4AAAAJ&hl=en" style="text-decoration: underline;">Google Scholar</a> · <a href="https://github.com/lamannamarco" style="text-decoration: underline;">GitHub</a></span><span>Built with HTML &amp; CSS</span></footer>
 </body>
 
 </html>
