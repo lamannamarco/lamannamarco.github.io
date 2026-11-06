@@ -268,15 +268,28 @@ h2 {
 
 .about-top {
     display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
-    gap: 48px;
-    align-items: start;
+    grid-template-columns: 160px 1fr;
+    gap: 28px;
+    align-items: center;
 }
 
-.about-heading h2 {
-    margin: 0;
-    max-width: 500px;
+/* Profile photo */
+
+.about-photo {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
 }
+
+.about-photo img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid var(--line);
+}
+
+/* Education */
 
 .education {
     padding-top: 4px;
@@ -441,6 +454,10 @@ h2 {
     .about-top {
         grid-template-columns: 1fr;
         gap: 28px;
+    }
+
+    .about-photo {
+        justify-content: flex-start;
     }
 
     .links-section {
