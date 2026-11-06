@@ -268,22 +268,26 @@ h2 {
 
 .about-top {
     display: grid;
-    grid-template-columns: 160px 1fr;
+    grid-template-columns: 160px minmax(0, 1fr);
     gap: 28px;
     align-items: center;
+    width: 100%;
 }
 
 /* Profile photo */
 
 .about-photo {
+    width: 160px;
     display: flex;
     align-items: center;
     justify-content: flex-start;
 }
 
 .about-photo img {
+    display: block;
     width: 150px;
     height: 150px;
+    max-width: 100%;
     object-fit: cover;
     border-radius: 12px;
     border: 1px solid var(--line);
@@ -292,14 +296,12 @@ h2 {
 /* Education */
 
 .education {
+    min-width: 0;
     padding-top: 4px;
 }
 
 .education p {
-    margin: 0 0 12px;
-    color: var(--muted);
-    font-size: .9rem;
-    line-height: 1.5;
+    overflow-wrap: break-word;
 }
 
 .education .eyebrow {
